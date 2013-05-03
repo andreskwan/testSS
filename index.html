@@ -6,7 +6,20 @@
 			<meta name="viewport" content="user-scalable=no, initial-scale=1, minimun-scale=1, maximum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi">
 			<title>Our Application</title>
 	<link rel="stylesheet" type="css/main.css">
+	<script source="cordoba.ios.js"></script>
+	<script>
+	function init() {
+		//false doesn't propagate
+		document.addEventListener("deviceready",onDeviceReady, false);
+	}
+	//everithing in this function is going to be called after the device is ready
+	//everything is ready an I can call device sensor APIs
+	function onDeviceReady(){
+		alert('It works!');
+	}
+	</script>	
 </head>
+<body onload="init()">
 <div>Placeholder</div>
 </body>
 </html>
