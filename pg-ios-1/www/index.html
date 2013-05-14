@@ -13,11 +13,16 @@
 	<script src="js/mustache.js"></script>
 	<script>
 		var notedata = {notetitle:"", notedetail:"", imagesource:"", notelat:"", notelon:""};
-		var notetemplate = '<input type="text" name="notetitle" id="notetitle" value="{{notetitle}}" placeholder="Note Title"/><textarea cols="40" rows="8" name="notedetail" id="notedetail" placeholder="Note Detail">{{notedetail}}</textarea><input id="addphoto" type="button" data-icon="plus" value="Add a Photo" /><img id="noteimage" src="{{imagesource}}" /><div id="map">Map Placeholder</div><input id="savenote" type="button" data-theme="a" value="Save Note" />';
-		
+		var notetemplate = '<input type="text" name="notetitle" id="notetitle" value="{{notetitle}}" placeholder="Nombre de la nota"/><textarea cols="40" rows="8" name="notedetail" id="notedetail" placeholder="Detalle de la nota">{{notedetail}}</textarea><input id="addphoto" type="button" data-icon="plus" value="Add a Photo" /><img id="noteimage" src="{{imagesource}}" /><div id="map">Map Placeholder</div><input id="savenote" type="button" data-theme="a" value="Save Note" />';
+		//event listener for JQuery
 		$(document).on("pageinit", function(){
+			//we wanto to listen for the page create event on that object '#newnote'
+			//when the event start we call the function to use mustache which renders the HTML
 			$("#newnote").live("pagecreate", function(){
+				//a holding obj for the html
+				//(template, dataStructure)
 				var html = Mustache.to_html(notetemplate, notedata);
+				//here we insert the html created into the html that already exists 
 				$("#notedetailcontent").html(html);
 			});
 		});
