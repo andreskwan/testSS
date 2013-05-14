@@ -1,3 +1,12 @@
 .logo {
 	text-align: center;
 }
+
+/* visibility set to visible 
+in hidden don't work just like 
+can be set from js*/
+.offline{
+	visibility:hidden;
+	color: #f00;
+	font-style: italic;
+}
