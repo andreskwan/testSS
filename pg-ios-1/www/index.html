@@ -38,6 +38,19 @@
 				//call api for navigation
 				navigator.geolocation.getCurrentPosition(onGeoSuccess, onGeoError);
 			})
+			$("#addphoto").bind("tap", function(){
+				//customize 
+				//the source: camera or librery
+				// and 
+				//the destination: device or URL, but better use URI less memory footstep
+				var options = {sourceType:Camera.PictureSourceType.Camera, destinationType: Camera.DestinationType.FILE_URI};
+				//call camera API
+				//tree arguments
+				//1 method on success
+				//2 method on error
+				//3 var options to customize camera experience
+				navigator.camera.getPicture(onCameraSuccess, onError, options);
+			})
 		});
 
 		function init() {
@@ -89,6 +102,13 @@
 					position: currentposition,
 					map: map
 			});
+		}
+		function onError (error) {
+			alert(error);
+		}
+		function onCameraSuccess (imageURI) {
+			$("#noteimage").attr("src",imageURI);
+			$("#noteimage").css("display","block")
 		}
 	</script>
 </head>
