@@ -10,3 +10,9 @@ can be set from js*/
 	color: #f00;
 	font-style: italic;
 }
+
+/**/
+#map {
+	width: 100%;
+	height: 200px;
+}
