@@ -53,7 +53,7 @@
 				//the source: camera or librery
 				// and 
 				//the destination: device or URL, but better use URI less memory footstep
-				var options = {quality:10,sourceType:Camera.PictureSourceType.Camera, destinationType:Camera.DestinationType.FILE_URI};
+				var options = {sourceType:Camera.PictureSourceType.Camera, destinationType: Camera.DestinationType.FILE_URI};
 				//call camera API
 				//tree arguments
 				//1 method on success
@@ -110,9 +110,9 @@
 		// database is a file on the device
 		//-------------------------------------------------//		
 		function getDbNotes(tx) {
-			tx.executeSql("CREATE TABLE IF NOT EXISTS NOTES (notetitle, notedetail, imagesource, notelat, notelon)");
-			tx.executeSql("SELECT * FROM NOTES", [], onSelectNotesSuccess, onDbError);
-		}
+            tx.executeSql("CREATE TABLE IF NOT EXISTS NOTES (notetitle, notedetail, imagesource, notelat, notelon)");
+            tx.executeSql("SELECT * FROM NOTES", [], onSelectNotesSuccess, onDbError);
+        }
 
         function onSelectNotesSuccess(tx, results) {
             dbresults = results;
@@ -127,14 +127,13 @@
             tx.executeSql("INSERT INTO NOTES (notetitle, notedetail, imagesource, notelat, notelon) VALUES (?, ?, ?, ?, ?)",[notedata.notetitle, notedata.notedetail, notedata.imagesource, notedata.notelat, notedata.notelon]);
         }
         function onDbSuccess(tx, results) {
-            alert("Note saved");
             console.log('Database call successful');
         }
         function onDbError(error) {
             alert("Database error " + error.message);
         }
 		//-------------------------------------------------//
-		// GEO
+		//
 		//-------------------------------------------------//
 		function onGeoError (error) {
 			// body...
